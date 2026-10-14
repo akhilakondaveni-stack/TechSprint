@@ -78,11 +78,11 @@ def setup_services():
 
 setup_services()
 
-# Custom CSS for Modern, Clean Healthcare Dashboard & Cyber Glassmorphism 3D
+# Custom CSS — Dreamy Pastel Healthcare Dashboard
 CUSTOM_CSS = """
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-    
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+Telugu:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
     /* Hide Default Streamlit Top Header & Sidebar */
     header[data-testid="stHeader"], .stAppHeader {
         background-color: transparent !important;
@@ -90,27 +90,23 @@ CUSTOM_CSS = """
         color: transparent !important;
         height: 0px !important;
     }
-    
     section[data-testid="stSidebar"], [data-testid="collapsedControl"], [data-testid="stSidebarNav"] {
         display: none !important;
         visibility: hidden !important;
         width: 0px !important;
     }
-    
-    /* Global Base - Transparent so 3D canvas shines through */
+
+    /* Global Base — let dreamy canvas show through */
     html, body, [class*="css"], .stApp, .stMarkdown, .stText, p, span, div, button, input, select, textarea, label {
         font-family: 'Plus Jakarta Sans', 'Noto Sans Telugu', 'Gautami', -apple-system, BlinkMacSystemFont, sans-serif !important;
-        background-color: #030810 !important;
-        color: #F1F5F9 !important;
+        background-color: transparent !important;
+        color: #3d2c4a !important;
     }
-
-    /* Deep Space Background - 3D canvas renders over this */
     .stApp {
-        background: #030810 !important;
-        background-attachment: fixed !important;
+        background: transparent !important;
     }
 
-    /* Primary Container Styling */
+    /* Primary Container */
     .main .block-container {
         padding-top: 0.8rem !important;
         padding-bottom: 6rem !important;
@@ -131,124 +127,127 @@ CUSTOM_CSS = """
         gap: 0.6rem;
         font-size: 1.6rem;
         font-weight: 800;
-        color: #FFFFFF;
+        color: #5b3a7e;
         letter-spacing: -0.02em;
-        text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+        text-shadow: 0 2px 12px rgba(178,134,201,0.35);
     }
     .brand-title span.icon {
-        color: #06B6D4;
+        color: #c084d0;
         font-size: 1.8rem;
-        filter: drop-shadow(0 0 10px #06B6D4);
+        filter: drop-shadow(0 0 8px rgba(192,132,208,0.6));
     }
 
     /* User Pill */
     .user-badge-pill {
-        background: rgba(13, 27, 46, 0.85);
-        border: 1px solid rgba(20, 184, 166, 0.3);
+        background: rgba(255,255,255,0.70);
+        border: 1px solid rgba(192,132,208,0.35);
         border-radius: 9999px;
         padding: 0.45rem 1.15rem;
         font-size: 0.95rem;
         font-weight: 600;
-        color: #E2E8F0;
+        color: #5b3a7e;
         display: inline-flex;
         align-items: center;
         gap: 0.5rem;
         backdrop-filter: blur(14px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 16px rgba(178,134,201,0.18);
     }
 
     /* Hero Greeting */
     .hero-greeting-text {
         font-size: 2.3rem;
         font-weight: 800;
-        color: #FFFFFF;
+        color: #4a2d6b;
         margin-bottom: 1.2rem;
         letter-spacing: -0.03em;
         display: flex;
         align-items: center;
         gap: 0.6rem;
+        text-shadow: 0 2px 16px rgba(178,134,201,0.3);
     }
 
-    /* Glassmorphism Card Components */
+    /* Dreamy Glass Card */
     .health-card, .glass-card {
-        background: rgba(13, 27, 46, 0.72) !important;
-        backdrop-filter: blur(16px) !important;
-        -webkit-backdrop-filter: blur(16px) !important;
-        border: 1px solid rgba(20, 184, 166, 0.25) !important;
-        border-radius: 20px !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
-        color: #F8FAFC !important;
+        background: rgba(255,255,255,0.62) !important;
+        backdrop-filter: blur(18px) !important;
+        -webkit-backdrop-filter: blur(18px) !important;
+        border: 1px solid rgba(255,255,255,0.75) !important;
+        border-radius: 22px !important;
+        box-shadow: 0 8px 32px rgba(178,134,201,0.18), inset 0 1px 0 rgba(255,255,255,0.9) !important;
+        color: #3d2c4a !important;
         padding: 1.5rem !important;
         margin-bottom: 1.1rem !important;
-        transition: transform 0.2s ease, border-color 0.2s ease !important;
+        transition: transform 0.25s ease, box-shadow 0.25s ease !important;
     }
     .health-card:hover, .glass-card:hover {
-        border-color: rgba(6, 182, 212, 0.5) !important;
-        box-shadow: 0 12px 36px rgba(6, 182, 212, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+        transform: translateY(-3px) !important;
+        box-shadow: 0 16px 40px rgba(178,134,201,0.28), inset 0 1px 0 rgba(255,255,255,0.95) !important;
     }
 
     /* Stats Quick Cards */
     .stat-glass-box {
-        background: rgba(13, 27, 46, 0.72);
-        border: 1px solid rgba(20, 184, 166, 0.22);
+        background: rgba(255,255,255,0.62);
+        border: 1px solid rgba(255,255,255,0.75);
         border-radius: 18px;
         padding: 1.3rem 1rem;
         text-align: center;
         backdrop-filter: blur(14px);
-        box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-        transition: all 0.2s ease;
+        box-shadow: 0 6px 20px rgba(178,134,201,0.15);
+        transition: all 0.25s ease;
     }
     .stat-glass-box:hover {
-        border-color: #06B6D4;
-        transform: translateY(-2px);
+        border-color: rgba(192,132,208,0.6);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(192,132,208,0.22);
     }
     .stat-number {
         font-size: 2.3rem;
         font-weight: 800;
-        color: #06B6D4;
+        color: #9b59b6;
         line-height: 1.1;
-        text-shadow: 0 0 16px rgba(6, 182, 212, 0.45);
     }
     .stat-label {
         font-size: 0.95rem;
-        color: #94A3B8;
+        color: #8a6fa0;
         font-weight: 600;
         margin-top: 0.35rem;
     }
 
     /* CTA Hint Banner */
     .cta-banner {
-        background: rgba(13, 30, 48, 0.85);
-        border: 1px solid rgba(16, 185, 129, 0.4);
-        border-left: 6px solid #10B981;
+        background: rgba(255,255,255,0.70);
+        border: 1px solid rgba(134,201,174,0.5);
+        border-left: 5px solid #6dbf9e;
         border-radius: 14px;
         padding: 0.95rem 1.3rem;
-        color: #F8FAFC;
+        color: #2d5a47;
         font-size: 1.05rem;
         font-weight: 600;
         margin-bottom: 1.2rem;
         display: flex;
         align-items: center;
         gap: 0.6rem;
-        box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+        box-shadow: 0 4px 16px rgba(109,191,158,0.15);
+        backdrop-filter: blur(10px);
     }
 
-    /* Streamlit Buttons Styled as Neon Pills */
+    /* Buttons — soft rose-lavender gradient */
     .stButton>button {
-        background: linear-gradient(135deg, rgba(13, 148, 136, 0.9) 0%, rgba(6, 182, 212, 0.9) 100%) !important;
-        color: #FFFFFF !important;
-        border: 1px solid rgba(6, 182, 212, 0.4) !important;
+        background: linear-gradient(135deg, rgba(192,132,208,0.85) 0%, rgba(249,168,212,0.85) 100%) !important;
+        color: #4a2d6b !important;
+        border: 1px solid rgba(255,255,255,0.6) !important;
         font-size: 1rem !important;
         font-weight: 700 !important;
-        border-radius: 12px !important;
+        border-radius: 14px !important;
         padding: 0.6rem 1.3rem !important;
-        transition: all 0.2s ease-in-out !important;
-        box-shadow: 0 4px 14px rgba(6, 182, 212, 0.25) !important;
+        transition: all 0.25s ease-in-out !important;
+        box-shadow: 0 4px 16px rgba(192,132,208,0.3) !important;
+        backdrop-filter: blur(8px) !important;
     }
     .stButton>button:hover {
         transform: translateY(-2px) !important;
-        box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5) !important;
-        border-color: #38BDF8 !important;
+        box-shadow: 0 8px 24px rgba(192,132,208,0.45) !important;
+        background: linear-gradient(135deg, rgba(192,132,208,1.0) 0%, rgba(249,168,212,1.0) 100%) !important;
     }
 
     /* Bottom Floating Dock Bar */
@@ -257,28 +256,28 @@ CUSTOM_CSS = """
         bottom: 1rem;
         left: 50%;
         transform: translateX(-50%);
-        background: rgba(10, 22, 38, 0.92);
-        border: 1px solid rgba(20, 184, 166, 0.35);
+        background: rgba(255,255,255,0.80);
+        border: 1px solid rgba(255,255,255,0.9);
         border-radius: 9999px;
         padding: 0.5rem 1rem;
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 24px rgba(6, 182, 212, 0.2);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        box-shadow: 0 8px 32px rgba(178,134,201,0.25);
         display: flex;
         gap: 0.8rem;
         z-index: 9999;
     }
 
-    /* Inputs in Dark Theme */
+    /* Inputs — light frosted */
     .stTextInput input, .stSelectbox [data-baseweb="select"], .stTextArea textarea {
-        background-color: rgba(11, 23, 40, 0.85) !important;
-        color: #F1F5F9 !important;
-        border: 1px solid rgba(20, 184, 166, 0.3) !important;
-        border-radius: 10px !important;
+        background-color: rgba(255,255,255,0.75) !important;
+        color: #3d2c4a !important;
+        border: 1px solid rgba(192,132,208,0.35) !important;
+        border-radius: 12px !important;
     }
-    .stTextInput input:focus, .stSelectbox [data-baseweb="select"]:focus, .stTextArea textarea:focus {
-        border-color: #06B6D4 !important;
-        box-shadow: 0 0 10px rgba(6, 182, 212, 0.35) !important;
+    .stTextInput input:focus, .stTextArea textarea:focus {
+        border-color: #c084d0 !important;
+        box-shadow: 0 0 12px rgba(192,132,208,0.28) !important;
     }
 
     /* Badges */
@@ -290,298 +289,466 @@ CUSTOM_CSS = """
         font-weight: 700;
         text-transform: uppercase;
     }
-    .badge-normal { background-color: rgba(16, 185, 129, 0.2); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.4); }
-    .badge-watch { background-color: rgba(245, 158, 11, 0.2); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.4); }
-    .badge-urgent { background-color: rgba(239, 68, 68, 0.2); color: #F87171; border: 1px solid rgba(239, 68, 68, 0.4); }
-    .badge-unknown { background-color: rgba(148, 163, 184, 0.2); color: #94A3B8; border: 1px solid rgba(148, 163, 184, 0.4); }
+    .badge-normal  { background: rgba(109,191,158,0.18); color: #2d7a5e; border: 1px solid rgba(109,191,158,0.45); }
+    .badge-watch   { background: rgba(245,196,111,0.22); color: #7a5200; border: 1px solid rgba(245,196,111,0.5);  }
+    .badge-urgent  { background: rgba(239,130,130,0.20); color: #8b1a1a; border: 1px solid rgba(239,130,130,0.45); }
+    .badge-unknown { background: rgba(178,134,201,0.18); color: #5b3a7e; border: 1px solid rgba(178,134,201,0.4);  }
 
-    /* Alert and Disclaimer */
+    /* Safety Alert */
     .safety-alert {
-        background-color: rgba(30, 24, 12, 0.85);
-        border: 1px solid rgba(245, 158, 11, 0.4);
-        border-left: 5px solid #F59E0B;
+        background: rgba(255,248,220,0.85);
+        border: 1px solid rgba(245,196,111,0.5);
+        border-left: 5px solid #e8a838;
         padding: 1rem 1.2rem;
-        border-radius: 10px;
-        color: #FDE68A;
+        border-radius: 12px;
+        color: #6b4400;
         font-size: 0.95rem;
         line-height: 1.5;
         margin-bottom: 1rem;
+        backdrop-filter: blur(8px);
     }
     .disclaimer-box {
-        background-color: rgba(11, 23, 40, 0.7);
-        border: 1px solid rgba(148, 163, 184, 0.25);
-        border-radius: 10px;
+        background: rgba(255,255,255,0.55);
+        border: 1px solid rgba(178,134,201,0.2);
+        border-radius: 12px;
         padding: 0.9rem 1.1rem;
         font-size: 0.82rem;
-        color: #94A3B8;
+        color: #7a6389;
         line-height: 1.5;
         margin-top: 1.2rem;
         margin-bottom: 1rem;
+        backdrop-filter: blur(8px);
     }
 
-    /* Sidebar Dark Theme */
+    /* Sidebar */
     section[data-testid="stSidebar"] {
-        background-color: #060E1A !important;
-        border-right: 1px solid rgba(20, 184, 166, 0.18) !important;
+        background: rgba(255,245,255,0.92) !important;
+        border-right: 1px solid rgba(192,132,208,0.2) !important;
     }
 </style>
 """
 st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
 
-# ---- 3D ANIMATED BACKGROUND (Three.js WebGL - DNA Helix + Particle Nebula) ----
-THREEJS_BG = """
+# ---- DREAMY PASTEL BACKGROUND (Watercolor blobs + Petals + Fireflies + Clouds) ----
+TWOD_BG = """
 <style>
-  #threejs-bg-canvas {
+  /* ===== DREAMY PASTEL SKY BASE ===== */
+  #dreamy-bg {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
     z-index: 0;
     pointer-events: none;
+    overflow: hidden;
+    /* Soft lavender-to-peach-to-mint gradient sky */
+    background:
+      radial-gradient(ellipse at 0% 0%,   rgba(230,208,255,0.70) 0%, transparent 55%),
+      radial-gradient(ellipse at 100% 0%,  rgba(255,218,220,0.65) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, rgba(196,240,228,0.55) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 60%,  rgba(255,243,200,0.45) 0%, transparent 50%),
+      linear-gradient(160deg, #f5eeff 0%, #fce8f0 35%, #f0f8ff 65%, #eefff6 100%);
   }
-  /* Ensure Streamlit content floats above the 3D canvas */
-  .stApp > * {
-    position: relative;
-    z-index: 1;
-  }
-  [data-testid="stAppViewContainer"] > section {
-    position: relative;
-    z-index: 2;
-  }
-  /* Animated floating orb glow effect */
-  @keyframes orb-pulse {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.7; transform: scale(1.08); }
-  }
-  .bg-orb {
-    position: fixed;
+
+  /* ===== WATERCOLOR WASH BLOBS ===== */
+  .wc-blob {
+    position: absolute;
     border-radius: 50%;
     pointer-events: none;
-    z-index: 0;
-    animation: orb-pulse 6s ease-in-out infinite;
-    filter: blur(80px);
+    filter: blur(70px);
+    animation: wc-breathe 20s ease-in-out infinite alternate;
   }
-  .orb-teal {
-    width: 520px; height: 520px;
-    background: radial-gradient(circle, rgba(13,148,136,0.28) 0%, transparent 70%);
-    top: -100px; right: -80px;
-    animation-delay: 0s;
+  .wc-blob:nth-child(1) {
+    width: 65vw; height: 55vh;
+    background: radial-gradient(ellipse, rgba(216,181,255,0.38) 0%, rgba(249,168,212,0.18) 55%, transparent 80%);
+    top: -18vh; left: -12vw;
+    animation-duration: 22s; animation-delay: 0s;
   }
-  .orb-indigo {
-    width: 460px; height: 460px;
-    background: radial-gradient(circle, rgba(99,102,241,0.22) 0%, transparent 70%);
-    bottom: 40px; left: -100px;
-    animation-delay: -3s;
+  .wc-blob:nth-child(2) {
+    width: 55vw; height: 60vh;
+    background: radial-gradient(ellipse, rgba(167,230,207,0.32) 0%, rgba(196,240,228,0.18) 55%, transparent 80%);
+    bottom: -20vh; right: -8vw;
+    animation-duration: 26s; animation-delay: -8s;
   }
-  .orb-cyan {
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(6,182,212,0.18) 0%, transparent 70%);
-    top: 45%; left: 42%;
-    animation-delay: -1.5s;
-    animation-duration: 8s;
+  .wc-blob:nth-child(3) {
+    width: 50vw; height: 50vh;
+    background: radial-gradient(ellipse, rgba(255,220,180,0.30) 0%, rgba(255,243,200,0.15) 60%, transparent 80%);
+    top: 30vh; left: 25vw;
+    animation-duration: 18s; animation-delay: -5s;
   }
+  .wc-blob:nth-child(4) {
+    width: 38vw; height: 45vh;
+    background: radial-gradient(ellipse, rgba(255,182,193,0.28) 0%, rgba(230,208,255,0.14) 60%, transparent 80%);
+    top: 5vh; right: 10vw;
+    animation-duration: 24s; animation-delay: -12s;
+  }
+  @keyframes wc-breathe {
+    0%   { transform: translate(0px,0px)   scale(1);    opacity: 0.75; }
+    30%  { transform: translate(20px,18px) scale(1.06); opacity: 1.0;  }
+    65%  { transform: translate(-15px,10px) scale(0.96); opacity: 0.80; }
+    100% { transform: translate(10px,-20px) scale(1.04); opacity: 0.90; }
+  }
+
+  /* ===== SOFT TEXTURE OVERLAY (subtle linen grain) ===== */
+  .linen-grain {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    pointer-events: none;
+  }
+
+  /* ===== DRIFTING CLOUDS ===== */
+  .dream-cloud {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    animation: cloud-drift linear infinite;
+  }
+  .dream-cloud:nth-child(1) { top: 8vh;  animation-duration: 90s;  animation-delay: 0s;   left: -30vw; }
+  .dream-cloud:nth-child(2) { top: 22vh; animation-duration: 120s; animation-delay: -35s; left: -30vw; }
+  .dream-cloud:nth-child(3) { top: 14vh; animation-duration: 75s;  animation-delay: -60s; left: -30vw; }
+  .dream-cloud:nth-child(4) { top: 5vh;  animation-duration: 100s; animation-delay: -20s; left: -30vw; }
+  @keyframes cloud-drift {
+    0%   { transform: translateX(0vw);    opacity: 0; }
+    5%   { opacity: 0.55; }
+    90%  { opacity: 0.40; }
+    100% { transform: translateX(140vw);  opacity: 0; }
+  }
+
+  /* ===== FLOATING PETALS ===== */
+  .petal {
+    position: absolute;
+    top: -60px;
+    pointer-events: none;
+    opacity: 0;
+    animation: petal-fall linear infinite;
+  }
+  /* Petal positions & timing */
+  .petal:nth-child(1)  { left:  5vw; animation-duration: 12s; animation-delay:  0s;   }
+  .petal:nth-child(2)  { left: 15vw; animation-duration: 16s; animation-delay: -4s;   }
+  .petal:nth-child(3)  { left: 28vw; animation-duration: 11s; animation-delay: -7s;   }
+  .petal:nth-child(4)  { left: 38vw; animation-duration: 14s; animation-delay: -2s;   }
+  .petal:nth-child(5)  { left: 50vw; animation-duration: 18s; animation-delay: -10s;  }
+  .petal:nth-child(6)  { left: 62vw; animation-duration: 13s; animation-delay: -1s;   }
+  .petal:nth-child(7)  { left: 72vw; animation-duration: 15s; animation-delay: -6s;   }
+  .petal:nth-child(8)  { left: 82vw; animation-duration: 10s; animation-delay: -9s;   }
+  .petal:nth-child(9)  { left: 90vw; animation-duration: 17s; animation-delay: -3s;   }
+  .petal:nth-child(10) { left: 45vw; animation-duration: 19s; animation-delay: -13s;  }
+  .petal:nth-child(11) { left: 20vw; animation-duration: 14s; animation-delay: -16s;  }
+  .petal:nth-child(12) { left: 68vw; animation-duration: 12s; animation-delay: -8s;   }
+  @keyframes petal-fall {
+    0%   { transform: translateY(0)   translateX(0)   rotate(0deg)   scale(0.7); opacity: 0;    }
+    8%   { opacity: 0.75; }
+    50%  { transform: translateY(50vh) translateX(30px) rotate(200deg) scale(1.0); opacity: 0.65; }
+    90%  { opacity: 0.45; }
+    100% { transform: translateY(105vh) translateX(-20px) rotate(380deg) scale(0.8); opacity: 0; }
+  }
+
+  /* ===== FIREFLY DOTS (CSS only) ===== */
+  .firefly {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: firefly-glow ease-in-out infinite alternate;
+  }
+  @keyframes firefly-glow {
+    0%   { opacity: 0.05; transform: scale(0.7) translate(0,0); }
+    50%  { opacity: 0.55; transform: scale(1.3) translate(6px,-8px); }
+    100% { opacity: 0.10; transform: scale(0.8) translate(-4px,6px); }
+  }
+
+  /* ===== CANVAS (fireflies + twinkling dust) ===== */
+  #dreamy-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+  }
+
+  /* ===== CONTENT ABOVE LAYER ===== */
+  .stApp > * { position: relative; z-index: 1; }
+  [data-testid="stAppViewContainer"] > section { position: relative; z-index: 2; }
 </style>
 
-<!-- Ambient glow orbs (CSS-only backup behind Three.js) -->
-<div class="bg-orb orb-teal"></div>
-<div class="bg-orb orb-indigo"></div>
-<div class="bg-orb orb-cyan"></div>
+<div id="dreamy-bg">
+  <!-- Watercolor blobs -->
+  <div class="wc-blob"></div>
+  <div class="wc-blob"></div>
+  <div class="wc-blob"></div>
+  <div class="wc-blob"></div>
 
-<canvas id="threejs-bg-canvas"></canvas>
+  <!-- Linen grain texture -->
+  <div class="linen-grain"></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Drifting soft clouds (SVG) -->
+  <div class="dream-cloud">
+    <svg width="320" height="90" viewBox="0 0 320 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="160" cy="60" rx="150" ry="30" fill="rgba(255,255,255,0.55)"/>
+      <ellipse cx="110" cy="48" rx="80" ry="28" fill="rgba(255,255,255,0.50)"/>
+      <ellipse cx="200" cy="44" rx="70" ry="26" fill="rgba(255,255,255,0.48)"/>
+      <ellipse cx="155" cy="36" rx="55" ry="22" fill="rgba(255,255,255,0.45)"/>
+    </svg>
+  </div>
+  <div class="dream-cloud">
+    <svg width="220" height="65" viewBox="0 0 220 65" fill="none">
+      <ellipse cx="110" cy="45" rx="100" ry="22" fill="rgba(255,240,255,0.50)"/>
+      <ellipse cx="80"  cy="36" rx="55"  ry="20" fill="rgba(255,240,255,0.45)"/>
+      <ellipse cx="140" cy="32" rx="50"  ry="18" fill="rgba(255,240,255,0.42)"/>
+    </svg>
+  </div>
+  <div class="dream-cloud">
+    <svg width="380" height="100" viewBox="0 0 380 100" fill="none">
+      <ellipse cx="190" cy="70" rx="180" ry="32" fill="rgba(240,255,248,0.48)"/>
+      <ellipse cx="130" cy="54" rx="90"  ry="30" fill="rgba(240,255,248,0.44)"/>
+      <ellipse cx="240" cy="50" rx="80"  ry="28" fill="rgba(240,255,248,0.42)"/>
+      <ellipse cx="185" cy="40" rx="65"  ry="24" fill="rgba(240,255,248,0.40)"/>
+    </svg>
+  </div>
+  <div class="dream-cloud">
+    <svg width="260" height="75" viewBox="0 0 260 75" fill="none">
+      <ellipse cx="130" cy="52" rx="120" ry="24" fill="rgba(255,248,230,0.48)"/>
+      <ellipse cx="95"  cy="42" rx="65"  ry="22" fill="rgba(255,248,230,0.44)"/>
+      <ellipse cx="170" cy="38" rx="58"  ry="20" fill="rgba(255,248,230,0.42)"/>
+    </svg>
+  </div>
+
+  <!-- Floating cherry blossom petals (SVG) -->
+  <!-- Petal shape: soft 4-lobe flower -->
+  <div class="petal">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+      <ellipse cx="9" cy="5" rx="3.5" ry="5" fill="rgba(255,182,193,0.75)" transform="rotate(0 9 9)"/>
+      <ellipse cx="9" cy="5" rx="3.5" ry="5" fill="rgba(255,182,193,0.70)" transform="rotate(90 9 9)"/>
+      <ellipse cx="9" cy="5" rx="3.5" ry="5" fill="rgba(255,182,193,0.70)" transform="rotate(180 9 9)"/>
+      <ellipse cx="9" cy="5" rx="3.5" ry="5" fill="rgba(255,182,193,0.70)" transform="rotate(270 9 9)"/>
+      <circle cx="9" cy="9" r="2" fill="rgba(255,220,230,0.9)"/>
+    </svg>
+  </div>
+  <div class="petal">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <ellipse cx="7" cy="3.5" rx="2.8" ry="3.8" fill="rgba(230,190,255,0.75)" transform="rotate(0 7 7)"/>
+      <ellipse cx="7" cy="3.5" rx="2.8" ry="3.8" fill="rgba(230,190,255,0.70)" transform="rotate(90 7 7)"/>
+      <ellipse cx="7" cy="3.5" rx="2.8" ry="3.8" fill="rgba(230,190,255,0.70)" transform="rotate(180 7 7)"/>
+      <ellipse cx="7" cy="3.5" rx="2.8" ry="3.8" fill="rgba(230,190,255,0.70)" transform="rotate(270 7 7)"/>
+      <circle cx="7" cy="7" r="1.5" fill="rgba(250,220,255,0.9)"/>
+    </svg>
+  </div>
+  <div class="petal">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <ellipse cx="8" cy="4" rx="3" ry="4.5" fill="rgba(255,210,180,0.75)" transform="rotate(0 8 8)"/>
+      <ellipse cx="8" cy="4" rx="3" ry="4.5" fill="rgba(255,210,180,0.70)" transform="rotate(90 8 8)"/>
+      <ellipse cx="8" cy="4" rx="3" ry="4.5" fill="rgba(255,210,180,0.70)" transform="rotate(180 8 8)"/>
+      <ellipse cx="8" cy="4" rx="3" ry="4.5" fill="rgba(255,210,180,0.70)" transform="rotate(270 8 8)"/>
+      <circle cx="8" cy="8" r="1.8" fill="rgba(255,240,200,0.9)"/>
+    </svg>
+  </div>
+  <div class="petal">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <ellipse cx="10" cy="5" rx="4" ry="5.5" fill="rgba(255,182,193,0.65)" transform="rotate(45 10 10)"/>
+      <ellipse cx="10" cy="5" rx="4" ry="5.5" fill="rgba(255,182,193,0.65)" transform="rotate(135 10 10)"/>
+      <ellipse cx="10" cy="5" rx="4" ry="5.5" fill="rgba(255,182,193,0.65)" transform="rotate(225 10 10)"/>
+      <ellipse cx="10" cy="5" rx="4" ry="5.5" fill="rgba(255,182,193,0.65)" transform="rotate(315 10 10)"/>
+      <circle cx="10" cy="10" r="2.2" fill="rgba(255,228,240,0.95)"/>
+    </svg>
+  </div>
+  <div class="petal">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+      <ellipse cx="6" cy="3" rx="2.4" ry="3.2" fill="rgba(200,220,255,0.75)" transform="rotate(0 6 6)"/>
+      <ellipse cx="6" cy="3" rx="2.4" ry="3.2" fill="rgba(200,220,255,0.70)" transform="rotate(90 6 6)"/>
+      <ellipse cx="6" cy="3" rx="2.4" ry="3.2" fill="rgba(200,220,255,0.70)" transform="rotate(180 6 6)"/>
+      <ellipse cx="6" cy="3" rx="2.4" ry="3.2" fill="rgba(200,220,255,0.70)" transform="rotate(270 6 6)"/>
+      <circle cx="6" cy="6" r="1.3" fill="rgba(220,240,255,0.9)"/>
+    </svg>
+  </div>
+  <div class="petal">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
+      <ellipse cx="7.5" cy="3.8" rx="3" ry="4" fill="rgba(255,200,220,0.72)" transform="rotate(0 7.5 7.5)"/>
+      <ellipse cx="7.5" cy="3.8" rx="3" ry="4" fill="rgba(255,200,220,0.68)" transform="rotate(90 7.5 7.5)"/>
+      <ellipse cx="7.5" cy="3.8" rx="3" ry="4" fill="rgba(255,200,220,0.68)" transform="rotate(180 7.5 7.5)"/>
+      <ellipse cx="7.5" cy="3.8" rx="3" ry="4" fill="rgba(255,200,220,0.68)" transform="rotate(270 7.5 7.5)"/>
+      <circle cx="7.5" cy="7.5" r="1.6" fill="rgba(255,230,240,0.9)"/>
+    </svg>
+  </div>
+  <div class="petal">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+      <ellipse cx="9" cy="4.5" rx="3.5" ry="4.8" fill="rgba(216,191,255,0.70)" transform="rotate(0 9 9)"/>
+      <ellipse cx="9" cy="4.5" rx="3.5" ry="4.8" fill="rgba(216,191,255,0.65)" transform="rotate(90 9 9)"/>
+      <ellipse cx="9" cy="4.5" rx="3.5" ry="4.8" fill="rgba(216,191,255,0.65)" transform="rotate(180 9 9)"/>
+      <ellipse cx="9" cy="4.5" rx="3.5" ry="4.8" fill="rgba(216,191,255,0.65)" transform="rotate(270 9 9)"/>
+      <circle cx="9" cy="9" r="2" fill="rgba(238,220,255,0.95)"/>
+    </svg>
+  </div>
+  <div class="petal">
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+      <ellipse cx="6.5" cy="3.3" rx="2.6" ry="3.5" fill="rgba(255,222,180,0.72)" transform="rotate(0 6.5 6.5)"/>
+      <ellipse cx="6.5" cy="3.3" rx="2.6" ry="3.5" fill="rgba(255,222,180,0.68)" transform="rotate(90 6.5 6.5)"/>
+      <ellipse cx="6.5" cy="3.3" rx="2.6" ry="3.5" fill="rgba(255,222,180,0.68)" transform="rotate(180 6.5 6.5)"/>
+      <ellipse cx="6.5" cy="3.3" rx="2.6" ry="3.5" fill="rgba(255,222,180,0.68)" transform="rotate(270 6.5 6.5)"/>
+      <circle cx="6.5" cy="6.5" r="1.4" fill="rgba(255,244,210,0.9)"/>
+    </svg>
+  </div>
+  <div class="petal">
+    <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
+      <ellipse cx="8.5" cy="4.3" rx="3.3" ry="4.5" fill="rgba(255,182,193,0.68)" transform="rotate(22 8.5 8.5)"/>
+      <ellipse cx="8.5" cy="4.3" rx="3.3" ry="4.5" fill="rgba(255,182,193,0.65)" transform="rotate(112 8.5 8.5)"/>
+      <ellipse cx="8.5" cy="4.3" rx="3.3" ry="4.5" fill="rgba(255,182,193,0.65)" transform="rotate(202 8.5 8.5)"/>
+      <ellipse cx="8.5" cy="4.3" rx="3.3" ry="4.5" fill="rgba(255,182,193,0.65)" transform="rotate(292 8.5 8.5)"/>
+      <circle cx="8.5" cy="8.5" r="1.9" fill="rgba(255,225,235,0.92)"/>
+    </svg>
+  </div>
+  <div class="petal">
+    <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+      <ellipse cx="5.5" cy="2.8" rx="2.2" ry="3" fill="rgba(190,230,210,0.72)" transform="rotate(0 5.5 5.5)"/>
+      <ellipse cx="5.5" cy="2.8" rx="2.2" ry="3" fill="rgba(190,230,210,0.68)" transform="rotate(90 5.5 5.5)"/>
+      <ellipse cx="5.5" cy="2.8" rx="2.2" ry="3" fill="rgba(190,230,210,0.68)" transform="rotate(180 5.5 5.5)"/>
+      <ellipse cx="5.5" cy="2.8" rx="2.2" ry="3" fill="rgba(190,230,210,0.68)" transform="rotate(270 5.5 5.5)"/>
+      <circle cx="5.5" cy="5.5" r="1.2" fill="rgba(220,250,235,0.9)"/>
+    </svg>
+  </div>
+  <div class="petal">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <ellipse cx="8" cy="4" rx="3.2" ry="4.3" fill="rgba(255,200,230,0.70)" transform="rotate(0 8 8)"/>
+      <ellipse cx="8" cy="4" rx="3.2" ry="4.3" fill="rgba(255,200,230,0.66)" transform="rotate(90 8 8)"/>
+      <ellipse cx="8" cy="4" rx="3.2" ry="4.3" fill="rgba(255,200,230,0.66)" transform="rotate(180 8 8)"/>
+      <ellipse cx="8" cy="4" rx="3.2" ry="4.3" fill="rgba(255,200,230,0.66)" transform="rotate(270 8 8)"/>
+      <circle cx="8" cy="8" r="1.7" fill="rgba(255,230,245,0.92)"/>
+    </svg>
+  </div>
+  <div class="petal">
+    <svg width="19" height="19" viewBox="0 0 19 19" fill="none">
+      <ellipse cx="9.5" cy="4.8" rx="3.8" ry="5" fill="rgba(240,200,255,0.68)" transform="rotate(15 9.5 9.5)"/>
+      <ellipse cx="9.5" cy="4.8" rx="3.8" ry="5" fill="rgba(240,200,255,0.65)" transform="rotate(105 9.5 9.5)"/>
+      <ellipse cx="9.5" cy="4.8" rx="3.8" ry="5" fill="rgba(240,200,255,0.65)" transform="rotate(195 9.5 9.5)"/>
+      <ellipse cx="9.5" cy="4.8" rx="3.8" ry="5" fill="rgba(240,200,255,0.65)" transform="rotate(285 9.5 9.5)"/>
+      <circle cx="9.5" cy="9.5" r="2.1" fill="rgba(252,235,255,0.95)"/>
+    </svg>
+  </div>
+
+  <!-- Canvas for twinkling firefly dust -->
+  <canvas id="dreamy-canvas"></canvas>
+</div>
+
 <script>
 (function() {
-  var canvas = document.getElementById('threejs-bg-canvas');
-  if (!canvas) return;
+  function initDreamy() {
+    var canvas = document.getElementById('dreamy-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var W = canvas.width  = canvas.offsetWidth  || window.innerWidth;
+    var H = canvas.height = canvas.offsetHeight || window.innerHeight;
 
-  var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  renderer.setClearColor(0x030810, 1);
+    window.addEventListener('resize', function() {
+      W = canvas.width  = canvas.offsetWidth  || window.innerWidth;
+      H = canvas.height = canvas.offsetHeight || window.innerHeight;
+      spawnFireflies();
+    });
 
-  var scene = new THREE.Scene();
+    /* Soft pastel firefly palette */
+    var PALETTE = [
+      [255, 182, 193],   /* blush pink   */
+      [216, 181, 255],   /* soft lavender*/
+      [167, 230, 207],   /* mint green   */
+      [255, 220, 180],   /* peach gold   */
+      [200, 220, 255],   /* periwinkle   */
+      [255, 210, 240],   /* rose petal   */
+    ];
 
-  var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 2000);
-  camera.position.set(0, 0, 120);
+    var FIREFLY_COUNT = 55;
+    var flies = [];
 
-  // ---- Starfield particles ----
-  var starGeo = new THREE.BufferGeometry();
-  var starCount = 1800;
-  var starPositions = new Float32Array(starCount * 3);
-  var starSizes = new Float32Array(starCount);
-  for (var i = 0; i < starCount; i++) {
-    starPositions[i * 3]     = (Math.random() - 0.5) * 800;
-    starPositions[i * 3 + 1] = (Math.random() - 0.5) * 800;
-    starPositions[i * 3 + 2] = (Math.random() - 0.5) * 600;
-    starSizes[i] = Math.random() * 1.8 + 0.4;
-  }
-  starGeo.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
-  starGeo.setAttribute('size', new THREE.BufferAttribute(starSizes, 1));
+    function rnd(a,b){ return a + Math.random()*(b-a); }
 
-  var starMat = new THREE.PointsMaterial({
-    color: 0xA8D8EA,
-    size: 1.2,
-    transparent: true,
-    opacity: 0.55,
-    sizeAttenuation: true,
-  });
-  var stars = new THREE.Points(starGeo, starMat);
-  scene.add(stars);
-
-  // ---- Floating molecule nodes (glowing spheres) ----
-  var nodeGroup = new THREE.Group();
-  var nodeCount = 28;
-  var nodePositions = [];
-  var nodeMeshes = [];
-  var colors = [0x0D9488, 0x06B6D4, 0x6366F1, 0x10B981, 0x38BDF8, 0x818CF8];
-
-  for (var j = 0; j < nodeCount; j++) {
-    var geo = new THREE.SphereGeometry(Math.random() * 1.6 + 0.6, 16, 16);
-    var col = colors[Math.floor(Math.random() * colors.length)];
-    var mat = new THREE.MeshBasicMaterial({ color: col, transparent: true, opacity: 0.7 });
-    var mesh = new THREE.Mesh(geo, mat);
-    var pos = {
-      x: (Math.random() - 0.5) * 160,
-      y: (Math.random() - 0.5) * 120,
-      z: (Math.random() - 0.5) * 80,
-      vx: (Math.random() - 0.5) * 0.04,
-      vy: (Math.random() - 0.5) * 0.04,
-      vz: (Math.random() - 0.5) * 0.025,
-    };
-    mesh.position.set(pos.x, pos.y, pos.z);
-    nodeGroup.add(mesh);
-    nodePositions.push(pos);
-    nodeMeshes.push(mesh);
-  }
-  scene.add(nodeGroup);
-
-  // ---- Connection lines between nearby nodes ----
-  var lineGroup = new THREE.Group();
-  scene.add(lineGroup);
-
-  function updateLines() {
-    while (lineGroup.children.length > 0) {
-      lineGroup.remove(lineGroup.children[0]);
-    }
-    for (var a = 0; a < nodeMeshes.length; a++) {
-      for (var b = a + 1; b < nodeMeshes.length; b++) {
-        var dx = nodeMeshes[a].position.x - nodeMeshes[b].position.x;
-        var dy = nodeMeshes[a].position.y - nodeMeshes[b].position.y;
-        var dz = nodeMeshes[a].position.z - nodeMeshes[b].position.z;
-        var dist = Math.sqrt(dx*dx + dy*dy + dz*dz);
-        if (dist < 42) {
-          var opacity = (1 - dist / 42) * 0.38;
-          var lineMat = new THREE.LineBasicMaterial({ color: 0x06B6D4, transparent: true, opacity: opacity });
-          var points = [nodeMeshes[a].position.clone(), nodeMeshes[b].position.clone()];
-          var lineGeo = new THREE.BufferGeometry().setFromPoints(points);
-          lineGroup.add(new THREE.Line(lineGeo, lineMat));
-        }
+    function spawnFireflies() {
+      flies = [];
+      for (var i = 0; i < FIREFLY_COUNT; i++) {
+        var c = PALETTE[Math.floor(Math.random()*PALETTE.length)];
+        flies.push({
+          x: rnd(0,W), y: rnd(0,H),
+          r: rnd(1.5, 4.5),
+          vx: rnd(-0.14, 0.14),
+          vy: rnd(-0.10, 0.10),
+          phase: rnd(0, Math.PI*2),
+          speed: rnd(0.35, 0.75),
+          color: c,
+          glow: rnd(6, 16),
+        });
       }
     }
-  }
+    spawnFireflies();
 
-  // ---- DNA Helix strand ----
-  var helixGroup = new THREE.Group();
-  scene.add(helixGroup);
-  var helixPoints = 120;
-  var helixRadius = 18;
-  var helixHeight = 130;
-  var dnaColors = [0x0D9488, 0x6366F1];
-
-  for (var s = 0; s < 2; s++) {
-    var helixGeo = new THREE.BufferGeometry();
-    var hPositions = new Float32Array(helixPoints * 3);
-    var offset = s === 0 ? 0 : Math.PI;
-    for (var p = 0; p < helixPoints; p++) {
-      var t = p / helixPoints;
-      hPositions[p * 3]     = Math.cos(t * Math.PI * 6 + offset) * helixRadius;
-      hPositions[p * 3 + 1] = t * helixHeight - helixHeight / 2;
-      hPositions[p * 3 + 2] = Math.sin(t * Math.PI * 6 + offset) * helixRadius;
-    }
-    helixGeo.setAttribute('position', new THREE.BufferAttribute(hPositions, 3));
-    var helixMat = new THREE.LineBasicMaterial({ color: dnaColors[s], transparent: true, opacity: 0.45, linewidth: 2 });
-    helixGroup.add(new THREE.Line(helixGeo, helixMat));
-  }
-
-  // Cross rungs of DNA
-  for (var r = 0; r < 22; r++) {
-    var t2 = r / 22;
-    var rungGeo = new THREE.BufferGeometry();
-    var rPts = new Float32Array(6);
-    var angle1 = t2 * Math.PI * 6;
-    var angle2 = angle1 + Math.PI;
-    var yRung = t2 * helixHeight - helixHeight / 2;
-    rPts[0] = Math.cos(angle1) * helixRadius; rPts[1] = yRung; rPts[2] = Math.sin(angle1) * helixRadius;
-    rPts[3] = Math.cos(angle2) * helixRadius; rPts[4] = yRung; rPts[5] = Math.sin(angle2) * helixRadius;
-    rungGeo.setAttribute('position', new THREE.BufferAttribute(rPts, 3));
-    var rungMat = new THREE.LineBasicMaterial({ color: 0x10B981, transparent: true, opacity: 0.25 });
-    helixGroup.add(new THREE.Line(rungGeo, rungMat));
-  }
-
-  helixGroup.position.set(-60, 0, -30);
-  helixGroup.rotation.z = 0.3;
-
-  // ---- Mouse parallax ----
-  var mouse = { x: 0, y: 0 };
-  document.addEventListener('mousemove', function(e) {
-    mouse.x = (e.clientX / window.innerWidth - 0.5) * 2;
-    mouse.y = -(e.clientY / window.innerHeight - 0.5) * 2;
-  });
-
-  // ---- Resize handler ----
-  window.addEventListener('resize', function() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-  });
-
-  // ---- Animation Loop ----
-  var clock = new THREE.Clock();
-  var lineUpdateTimer = 0;
-
-  function animate() {
-    requestAnimationFrame(animate);
-    var elapsed = clock.getElapsedTime();
-
-    // Rotate starfield slowly
-    stars.rotation.y = elapsed * 0.012;
-    stars.rotation.x = elapsed * 0.006;
-
-    // Rotate DNA helix
-    helixGroup.rotation.y = elapsed * 0.22;
-
-    // Move nodes
-    for (var n = 0; n < nodePositions.length; n++) {
-      var np = nodePositions[n];
-      np.x += np.vx; np.y += np.vy; np.z += np.vz;
-      if (Math.abs(np.x) > 80) np.vx *= -1;
-      if (Math.abs(np.y) > 60) np.vy *= -1;
-      if (Math.abs(np.z) > 40) np.vz *= -1;
-      nodeMeshes[n].position.set(np.x, np.y, np.z);
-      // Pulse size
-      var s = 1 + Math.sin(elapsed * 1.5 + n) * 0.18;
-      nodeMeshes[n].scale.setScalar(s);
+    /* Twinkling star dust (tiny dots) */
+    var DUST_COUNT = 120;
+    var dust = [];
+    for (var d = 0; d < DUST_COUNT; d++) {
+      dust.push({
+        x: rnd(0,W), y: rnd(0,H),
+        r: rnd(0.5, 1.5),
+        phase: rnd(0, Math.PI*2),
+        speed: rnd(0.4, 1.0),
+        alpha: rnd(0.1, 0.4),
+      });
     }
 
-    // Update connection lines every 6 frames
-    lineUpdateTimer++;
-    if (lineUpdateTimer % 6 === 0) updateLines();
+    var t = 0;
+    function draw() {
+      ctx.clearRect(0,0,W,H);
+      t += 0.008;
 
-    // Camera mouse parallax
-    camera.position.x += (mouse.x * 12 - camera.position.x) * 0.03;
-    camera.position.y += (mouse.y * 8  - camera.position.y) * 0.03;
-    camera.lookAt(0, 0, 0);
+      /* Draw twinkling dust */
+      for (var d = 0; d < dust.length; d++) {
+        var dp = dust[d];
+        var da = dp.alpha * (0.5 + 0.5*Math.sin(t*dp.speed + dp.phase));
+        ctx.beginPath();
+        ctx.arc(dp.x, dp.y, dp.r, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(200,170,255,' + da + ')';
+        ctx.fill();
+      }
 
-    renderer.render(scene, camera);
+      /* Draw fireflies */
+      for (var i = 0; i < flies.length; i++) {
+        var f = flies[i];
+        var pulse = 0.3 + 0.7*Math.abs(Math.sin(t*f.speed + f.phase));
+        var c = f.color;
+
+        /* Outer glow */
+        var grd = ctx.createRadialGradient(f.x,f.y,0, f.x,f.y,f.glow);
+        grd.addColorStop(0,   'rgba('+c[0]+','+c[1]+','+c[2]+','+(pulse*0.45)+')');
+        grd.addColorStop(0.5, 'rgba('+c[0]+','+c[1]+','+c[2]+','+(pulse*0.18)+')');
+        grd.addColorStop(1,   'rgba('+c[0]+','+c[1]+','+c[2]+',0)');
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, f.glow, 0, Math.PI*2);
+        ctx.fillStyle = grd;
+        ctx.fill();
+
+        /* Core dot */
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, f.r * pulse, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba('+c[0]+','+c[1]+','+c[2]+','+(pulse*0.85)+')';
+        ctx.fill();
+
+        /* Move */
+        f.x += f.vx + 0.08*Math.sin(t*0.4 + f.phase);
+        f.y += f.vy + 0.06*Math.cos(t*0.3 + f.phase);
+        if (f.x < -20) f.x = W+20;
+        if (f.x > W+20) f.x = -20;
+        if (f.y < -20) f.y = H+20;
+        if (f.y > H+20) f.y = -20;
+      }
+
+      requestAnimationFrame(draw);
+    }
+    draw();
   }
-  animate();
+
+  if (document.readyState==='loading') {
+    document.addEventListener('DOMContentLoaded', initDreamy);
+  } else {
+    initDreamy();
+  }
 })();
 </script>
 """
 
-st.markdown(THREEJS_BG, unsafe_allow_html=True)
+st.markdown(TWOD_BG, unsafe_allow_html=True)
 
 # ----------------- Session State & Language Management -----------------
 # 1. URL Query Parameter -> LocalStorage synchronization

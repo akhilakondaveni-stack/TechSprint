@@ -94,7 +94,7 @@ cp .env.example .env
 Configure `.env` as required:
 ```ini
 # Anthropic Claude API (Optional: if blank, HealthBuddy runs in Demo Mode with realistic synthetic data)
-ANTHROPIC_API_KEY=your_anthropic_api_key_here
+ANTHROPIC_API_KEY="your_anthropic_api_key_here"
 CLAUDE_MODEL=claude-3-7-sonnet-20250219
 
 # Security: 32-byte base64 URL-safe key. If blank, one is generated automatically and persisted in data/.fernet.key
